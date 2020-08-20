@@ -15,10 +15,33 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/api/kamus','KamusController@index');
-$router->get('/api/kamus/{kata}','KamusController@detail');
-$router->get('/api/kamus/search/{query}','KamusController@search');
+// prefix API v1
+// /api/v1
+$router->group(['prefix' => 'api/v1'], function () use ($router) {
 
-$router->get('/api/rima/akhir/{word}','RimaController@getAkhir');
-$router->get('/api/rima/awal/{word}','RimaController@getAwal');
-$router->get('/api/rima/konsonan/{word}','RimaController@getKonsonan');
+    // Kamus Controller
+    // /api/v1/kamus
+    $router->group(['prefix' => 'kamus'], function() use ($router) {
+        $router->get('','ApiControllers\V1Controllers\KamusController@index');
+        $router->get('{kata}','ApiControllers\V1Controllers\KamusController@detail');
+        $router->get('search/{query}','ApiControllers\V1Controllers\KamusController@search');
+    });
+
+    // Rima Controller
+    // /api/v1/rima
+    $router->group(['prefix' => 'rima'], function() use ($router) {
+        //akhir
+        $router->get('akhir/{word}','ApiControllers\V1Controllers\RimaController@getAkhir');
+        $router->get('akhir-parsial/{word}','ApiControllers\V1Controllers\RimaController@getAkhir');
+        $router->get('ganda/{word}','ApiControllers\V1Controllers\RimaController@getAkhirGanda');
+        $router->get('ganda-parsial/{word}','ApiControllers\V1Controllers\RimaController@getAkhirGandaParsial');
+
+        // awal
+        $router->get('awal/{word}','ApiControllers\V1Controllers\RimaController@getAwal');
+        $router->get('awal-parsial/{word}','ApiControllers\V1Controllers\RimaController@getAwalParsial');
+
+        // lainnya
+        $router->get('konsonan/{word}','ApiControllers\V1Controllers\RimaController@getKonsonan');
+    });
+});
+

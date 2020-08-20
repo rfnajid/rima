@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ApiControllers\V1Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Kata;
 use App\Helpers\GlobalHelper;

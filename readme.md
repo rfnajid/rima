@@ -1,6 +1,6 @@
-# RIMA API
+# RIMA
 
-API untuk mencari rima pada suatu kata.
+mencari rima pada suatu kata.
 
 ## Kredit
 
@@ -10,4 +10,4 @@ Dibuat menggunakan [Lumen](https://lumen.laravel.com)
 
 ## Lisensi
 
-RIMA API dilisensikan menggunakan [MIT license](https://opensource.org/licenses/MIT).
+RIMA dilisensikan menggunakan [MIT license](https://opensource.org/licenses/MIT).
