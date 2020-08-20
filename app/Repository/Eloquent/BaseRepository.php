@@ -75,8 +75,9 @@ class BaseRepository implements BaseRepositoryInterface
     /**
     * @param array $fields
     * @param array query
+    * @param array options
     */
-    public function where(array $fields,array $query)
+    public function where(array $fields,array $query,array $options = [])
     {
         if(count($fields)==0){
             return [];
@@ -85,6 +86,17 @@ class BaseRepository implements BaseRepositoryInterface
         $res = $this->model;
         for ($i=0; $i < count($fields); $i++) {
             $res = $res->where($fields[$i],$query[$i]);
+        }
+
+        //options
+        if(count($options)>0){
+            if(isset($options['offset'])){
+                $res = $res->skip($options['offset']);
+            }
+
+            if(isset($options['limit'])){
+                $res = $res->take($options['limit']);
+            }
         }
 
         return $res->get();

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\ApiControllers\V1Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use App\Repository\KataRepositoryInterface;
 use App\Repository\BaseRepositoryInterface;
 
 
-class RimaController extends Controller
+class RimaController extends BaseController
 {
 
     private $repo;

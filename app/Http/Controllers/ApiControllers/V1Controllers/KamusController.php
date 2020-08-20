@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\ApiControllers\V1Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Kata;
 use App\Helpers\GlobalHelper;
 use Illuminate\Support\Facades\DB;
 
-class KamusController extends Controller
+class KamusController extends BaseController
 {
     /**
      * Create a new controller instance.

@@ -15,56 +15,75 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
         parent::__construct($model);
     }
 
-    public function findByAkhir($word){
+    public function findByKata($word){
+        $res = parent::where(['kata'],[$word]);
+
+        if(count($res)>0){
+            $res = $res[0];
+        }else{
+            $res = null;
+        }
+
+        return $res;
+    }
+
+    public function findByAkhir($word, $options=[]){
         error_log("KataRepository -> findByAkhir ->word : ".print_r($word, TRUE));
 
         $syls = SukuKataHelper::getSukuKataAkhir($word);
-        error_log("KataRepository -> findByAkhir".print_r($syls, TRUE));
         $fields = ["sukuakhir1"];
         $query = [$syls[0]];
 
-        $data = parent::where($fields,$query);
+        $data = parent::where($fields,$query, $options);
         return $data;
     }
 
-    public function findByAkhirParsial($word){
-
-    }
-
-    public function findByAkhirGanda($word){
+    public function findByAkhirGanda($word, $options=[]){
         $syl = SukuKataHelper::getSukuKataAkhir($word);
         $fields = ["sukuakhir1","sukuakhir2"];
         $query = [$syl[0],$syl[1]];
 
-        $data = parent::where($fields,$query);
+        $data = parent::where($fields,$query, $options);
 
         return $data;
     }
 
-    public function findByAkhirGandaParsial($word){
-
-    }
-
-    public function findByAwal($word){
+    public function findByAwal($word, $options=[]){
         $syl = SukuKataHelper::getSukuKataAwal($word);
         $fields = ["sukuawal1"];
         $query = [$syl[0]];
 
-        $data = parent::where($fields,$query);
+        $data = parent::where($fields,$query, $options);
         return $data;
     }
 
-    public function findByAwalParsial($word){
+    public function findByAwalGanda($word, $options=[]){
+        $syl = SukuKataHelper::getSukuKataAwal($word);
+        $fields = ["sukuawal1","sukuawal2"];
+        $query = [$syl[0],$syl[1]];
 
+        $data = parent::where($fields,$query, $options);
+
+        return $data;
     }
 
-    public function findByKonsonan($word)
+    public function findByKonsonan($word, $options=[])
     {
         $syl = SukuKataHelper::getKonsonan($word);
         $fields = ["konsonan"];
         $query = [$syl];
 
-        $data = parent::where($fields,$query);
+        $data = parent::where($fields,$query, $options);
+        return $data;
+    }
+
+    public function findByVokal($word, $options=[])
+    {
+        $syl = SukuKataHelper::getKonsonan($word);
+        $fields = ["vokal"];
+        $query = [$syl];
+
+        $data = parent::where($fields,$query, $options);
         return $data;
     }
 }

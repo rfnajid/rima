@@ -1,0 +1,19 @@
+main{
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+@media only screen and (max-width: 720px) {
+    main{
+        width: 75%;
+    }
+
+    h1.title{
+        font-size: 6em;
+        margin: 16px;
+    }
+}

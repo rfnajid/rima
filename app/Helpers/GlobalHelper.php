@@ -11,4 +11,21 @@ class GlobalHelper {
     public static function getPagination(){
         return 17;
     }
+
+    public static function log($str){
+        error_log(print_r($str, TRUE));
+    }
+
+    public static function getColors(){
+        return [
+            "red",
+            "green",
+            "blue",
+            "orange",
+            "dark",
+            "alpha",
+            "violet",
+            "yellow"
+        ];
+    }
 }

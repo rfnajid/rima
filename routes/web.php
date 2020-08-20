@@ -11,9 +11,10 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+// Web Routes
+$router->get('/', 'WebControllers\WebController@index');
+$router->post('/', 'WebControllers\WebController@search');
+$router->get('rima/{word}', 'WebControllers\WebController@rima');
 
 // prefix API v1
 // /api/v1

@@ -46,6 +46,7 @@ interface BaseRepositoryInterface
     /**
     * @param array $fields
     * @param array query
+    * @param array options
     */
-    public function where(array $fields,array $query);
+    public function where(array $fields,array $query, array $options);
 }

@@ -6,16 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kata extends Model
 {
-   protected $table = 'Kamus';
+   protected $table = 'kamus';
 
    /**
     * The attributes that are mass assignable.
     *
     * @var array
     */
-   // protected $fillable = [
-   //    'name', 'email',
-   // ];
 
    /**
       * The attributes excluded from the model's JSON form.

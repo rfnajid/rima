@@ -2,17 +2,19 @@
 
 interface KataRepositoryInterface extends BaseRepositoryInterface
 {
-    public function findByAkhir($word);
 
-    public function findByAkhirParsial($word);
+    public function findByKata($word);
+
+    public function findByAkhir($word);
 
     public function findByAkhirGanda($word);
 
-    public function findByAkhirGandaParsial($word);
-
     public function findByAwal($word);
 
-    public function findByAwalParsial($word);
+    public function findByAwalGanda($word);
 
     public function findByKonsonan($word);
+
+    public function findByVokal($word);
+
 }

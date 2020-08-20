@@ -1,0 +1,150 @@
+/*
+COLOR THEMES :
+RED : #e11d74
+DARK : #6e6d6d
+WHITE : #ececec
+GREEN : #508a68
+BLUE : #6474ca
+YELLOW : #fffd3f
+VIOLET : #827397
+ORANGE : #ff7800
+
+BACKGROUND: WHITE
+COLOR : DARK
+LOGO : RED
+*/
+
+body{
+    background: #ececec;
+    color: #6e6d6d;
+    position: relative;
+}
+
+main{
+    width: 75%;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+a:visited, a:hover, a:active, a:focus, a {
+    font-style: normal;
+    text-decoration: none !important;
+}
+
+.row{
+    margin:0px;
+    width: 100%;
+}
+
+.col-md-6{
+    padding:0px;
+}
+
+.card{
+    margin-top:21px;
+    margin-left:5px;
+    margin-right: 5px;
+}
+
+.card-title{
+    text-transform: capitalize;
+}
+
+h1.title{
+    display: block;
+    color:#e11d74;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 8em;
+    text-align: center;
+    font-weight: bold;
+    margin: 16px;
+}
+
+h5.header{
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.2em;
+    margin: 16px;
+}
+
+div.search > input{
+    padding-right: 35px;
+}
+
+div.search > button.btn {
+    position: relative;
+    top: -32px;
+    right: 10px;
+    padding:0;
+    margin:0;
+    float: right;
+    clear: both;
+}
+
+.not-found{
+    text-align:center;
+}
+
+.not-found > i {
+    margin: 16px;
+}
+
+.pop-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn.pop{
+    border-radius: 16px;
+    margin: 4px;
+}
+
+.btn.red{
+    background: #e11d74;
+    color: #ececec;
+}
+
+.btn.green{
+    background: #508a68;
+    color: #ececec;
+}
+
+.btn.blue{
+    background: #6474ca;
+    color: #ececec;
+}
+
+.btn.yellow{
+    background: #fffd3f;
+    color: #6e6d6d;
+}
+
+.btn.violet{
+    background: #827397;
+    color: #ececec;
+}
+
+.btn.orange{
+    background: #ff7800;
+    color: #ececec;
+}
+
+.btn.dark{
+    background: #6e6d6d;
+    color: #ececec;
+}
+
+.btn.alpha {
+    background: none;
+    border: solid #6e6d6d;
+    border-width: 2px;
+}
+
+.card-link {
+    display: flex;
+    margin-top: 21px;
+    justify-content: flex-end;
+}
