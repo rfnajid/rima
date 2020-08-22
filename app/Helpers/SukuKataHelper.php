@@ -32,4 +32,8 @@ class SukuKataHelper{
     public static function getKonsonan($str){
         return SukuKataLib::getKonsonan($str);
     }
+
+    public static function getVokal($str){
+        return SukuKataLib::getVokal($str);
+    }
 }

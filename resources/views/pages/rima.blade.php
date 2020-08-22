@@ -14,7 +14,7 @@
                             <h5 class="card-title">{{$rima['type']}}</h5>
                             <div class="pop-button-container">
                                 @for ($i = 0, $colorsSize = count($colors) ; $i < count($rima['data']); $i++)
-                                    <a href="{{ url('rima/' . $rima['data'][$i]['kata']) }}" class="btn pop {{$colors[$i%$colorsSize]}}">
+                                    <a target="_blank" href="{{ url('rima/' . $rima['data'][$i]['kata']) }}" class="btn pop {{$colors[$i%$colorsSize]}}">
                                         {{$rima['data'][$i]['kata']}}
                                     </a>
                                 @endfor
@@ -25,9 +25,11 @@
                                 </div>
                                 @endif
                             </div>
-                            <!-- <div>
-                                <a href="#" class="card-link">Card link</a>
-                            </div> -->
+                            @if (count($rima['data'])==21)
+                            <div>
+                                <a href="{{ url('rima/' . $kata. '/'. $rima['slug']) }}" class="card-link">Lebih Banyak Lagi</a>
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

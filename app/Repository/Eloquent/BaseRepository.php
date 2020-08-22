@@ -89,7 +89,20 @@ class BaseRepository implements BaseRepositoryInterface
         }
 
         //options
-        if(count($options)>0){
+        if(is_array($options) && count($options)>0){
+
+            if(isset($options['select'])){
+                $res = $res->select($options['select']);
+            }
+
+            if(isset($options['distinct'])){
+                $res = $res->distinct($options['distinct']);
+            }
+
+            if(isset($options['not_in'])){
+                $res = $res->whereNotIn($options['not_in']['field'], $options['not_in']['values']);
+            }
+
             if(isset($options['offset'])){
                 $res = $res->skip($options['offset']);
             }
