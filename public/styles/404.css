@@ -1,0 +1,29 @@
+body{
+    margin:0;
+    padding: 0;
+    background: #e11d74;
+    color: #ececec;
+    text-align:center;
+}
+
+main{
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+h1{
+    font-size: 5rem;
+    font-weight: 600;
+    margin: 21px 0px;
+}
+
+a.btn, a.btn:hover{
+    margin:21px 0px;
+    background: none;
+    text-decoration:none;
+    color: #ececec;
+}
