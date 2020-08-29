@@ -10,6 +10,7 @@ use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -48,6 +49,8 @@ class Handler extends ExceptionHandler
     {
         if($exception instanceof NotFoundHttpException){
             return response(view('errors.404'),404);
+        }else if(env('APP_DEBUG') === false){
+            return response(view('errors.500'),500);
         }
 
         return parent::render($request, $exception);
