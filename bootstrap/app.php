@@ -77,6 +77,10 @@ $app->singleton(
 */
 
  $app->register(App\Providers\AppServiceProvider::class);
+ $app->register(\Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class);
+
+ // configure
+ $app->configure('apidoc');
 
 /*
 |--------------------------------------------------------------------------

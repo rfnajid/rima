@@ -25,7 +25,7 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
     // /api/v1/kamus
     $router->group(['prefix' => 'kamus'], function() use ($router) {
         $router->get('','ApiControllers\V1Controllers\KamusController@index');
-        $router->get('{kata}','ApiControllers\V1Controllers\KamusController@detail');
+        $router->get('{word}','ApiControllers\V1Controllers\KamusController@detail');
         $router->get('search/{query}','ApiControllers\V1Controllers\KamusController@search');
     });
 

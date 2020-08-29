@@ -10,7 +10,11 @@ use Illuminate\Http\Request;
 use App\Repository\KataRepositoryInterface;
 use DanBovey\LinkHeaderPaginator\LengthAwarePaginator;
 
-
+/**
+ * @group  API Kamus
+ *
+ * API untuk mendapatkan arti kata
+ */
 class KamusController extends BaseController
 {
     private $repo;
@@ -24,6 +28,15 @@ class KamusController extends BaseController
         $this->repo = $repo;
     }
 
+    /**
+     * Get List Kata
+     *
+     * Get list kata sesuai kamus
+     *
+     * @queryParam size jumlah kata yang mau ditampilkan. Gunakan 'all' untuk menampilkan semua data. Example: 3
+     * @queryParam page pagination. Example: 1
+     * @responseFile  responses/kamus.index.json
+     */
     public function index(Request $request){
 
         $options = [
@@ -35,21 +48,39 @@ class KamusController extends BaseController
         return $paginator->toResponse();
     }
 
-    public function detail($kata){
-       $res = $this->repo->findByKata($kata);
+     /**
+     * Get Kata
+     *
+     * Get detail kata
+     *
+     * @urlParam kata kata yang mau diambil
+     * @responseFile  responses/kamus.detail.json
+     */
+
+    public function detail($word){
+       $res = $this->repo->findByKata($word);
        if(is_null($res)){
            return response(view('errors.404'),404);
        }
        return $res;
     }
 
+     /**
+     * Search Kata
+     *
+     * API untuk mencari kata
+     *
+     * @urlParam query kata kunci pencarian
+     * @queryParam size jumlah kata yang mau ditampilkan. Gunakan 'all' untuk menampilkan semua data. Example: 3
+     * @queryParam page pagination. Example: 1
+     * @responseFile  responses/kamus.search.json
+     */
     public function search(Request $request, $query){
         $options = [
+            'size'=> $request->size,
             'request'=>$request
         ];
         $paginator = new LengthAwarePaginator($this->repo->search($query, $options));
         return $paginator->toResponse();
     }
-
-    //
 }
