@@ -13,7 +13,7 @@ interface BaseRepositoryInterface
     *
     * @return array
     */
-    public function all(): array;
+    public function get($options);
 
    /**
     * @param array $data
@@ -44,9 +44,7 @@ interface BaseRepositoryInterface
     public function find($id): ?Model;
 
     /**
-    * @param array $fields
-    * @param array query
-    * @param array options
+    * @param array options (select,field, query, distinct, not_in, size,pagination,request)
     */
-    public function where(array $fields,array $query, array $options);
+    public function where(array $options);
 }

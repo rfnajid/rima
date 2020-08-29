@@ -4,7 +4,9 @@ namespace App\Http\Controllers\ApiControllers\V1Controllers;
 
 use App\Http\Controllers\BaseController;
 use App\Repository\KataRepositoryInterface;
-use App\Repository\BaseRepositoryInterface;
+use Illuminate\Http\Request;
+use DanBovey\LinkHeaderPaginator\LengthAwarePaginator;
+
 
 
 class RimaController extends BaseController
@@ -21,33 +23,73 @@ class RimaController extends BaseController
         $this->repo = $repo;
     }
 
-    public function getAkhir($word){
-        error_log("RimaController -> getAkhir".print_r($word, TRUE));
-
-        return response($this->repo->findByAkhir($word));
+    public function getAkhir(Request $request, $word){
+        $options = [
+            'size' => $request->size,
+            'request'=>$request
+        ];
+        $paginator = new LengthAwarePaginator($this->repo->findByAkhir($word, $options));
+        return $paginator->toResponse();
     }
 
     public function getAkhirParsial(){
 
     }
 
-    public function getAkhirGanda($word){
-        return response($this->repo->findByAkhirGanda($word));
+    public function getAkhirGanda(Request $request, $word){
+        $options = [
+            'size' => $request->size,
+            'request'=>$request
+        ];
+        $paginator = new LengthAwarePaginator($this->repo->findByAkhirGanda($word, $options));
+        return $paginator->toResponse();
     }
 
     public function getAkhirGandaParsial(){
 
     }
 
-    public function getAwal($word){
-        return response($this->repo->findByAwal($word));
+    public function getAwal(Request $request, $word){
+        $options = [
+            'size' => $request->size,
+            'request'=>$request
+        ];
+        $paginator = new LengthAwarePaginator($this->repo->findByAwal($word, $options));
+        return $paginator->toResponse();
     }
 
     public function getAwalParsial(){
 
     }
 
-    public function getKonsonan($word){
-        return response($this->repo->findByKonsonan($word));
+    public function getAwalGanda(Request $request, $word){
+        $options = [
+            'size' => $request->size,
+            'request'=>$request
+        ];
+        $paginator = new LengthAwarePaginator($this->repo->findByAwalGanda($word, $options));
+        return $paginator->toResponse();
+    }
+
+    public function getAwalGandaParsial(){
+
+    }
+
+    public function getKonsonan(Request $request, $word){
+        $options = [
+            'size' => $request->size,
+            'request'=>$request
+        ];
+        $paginator = new LengthAwarePaginator($this->repo->findByKonsonan($word, $options));
+        return $paginator->toResponse();
+    }
+
+    public function getVokal(Request $request, $word){
+        $options = [
+            'size' => $request->size,
+            'request'=>$request
+        ];
+        $paginator = new LengthAwarePaginator($this->repo->findByVokal($word, $options));
+        return $paginator->toResponse();
     }
 }

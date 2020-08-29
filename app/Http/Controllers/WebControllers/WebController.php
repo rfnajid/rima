@@ -50,7 +50,7 @@ class WebController extends BaseController{
         $word = urldecode($word);
 
         $options = [
-            "limit" => 21
+            "size" => 21
         ];
 
         $rimas = [
@@ -79,24 +79,27 @@ class WebController extends BaseController{
     public function more($word, $type){
         $word = urldecode($word);
         $rima = [];
+        $options = [
+            'size'=>'all'
+        ];
         switch ($type) {
             case 'akhir':
-                $rima = $this->getAkhir($word);
+                $rima = $this->getAkhir($word,$options);
             break;
             case 'akhir-ganda':
-                $rima = $this->getAkhirGanda($word);
+                $rima = $this->getAkhirGanda($word,$options);
             break;
             case 'awal':
-                $rima = $this->getAwal($word);
+                $rima = $this->getAwal($word,$options);
             break;
             case 'awal-ganda':
-                $rima = $this->getAwalGanda($word);
+                $rima = $this->getAwalGanda($word,$options);
             break;
             case 'konsonan':
-                $rima = $this->getKonsonan($word);
+                $rima = $this->getKonsonan($word,$options);
             break;
             case 'vokal':
-                $rima = $this->getVokal($word);
+                $rima = $this->getVokal($word,$options);
             break;
             default:
                 redirect('/');

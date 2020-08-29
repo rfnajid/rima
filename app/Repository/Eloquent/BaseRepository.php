@@ -26,9 +26,9 @@ class BaseRepository implements BaseRepositoryInterface
     *
     * @return array
     */
-    public function all(): array
+    public function get($options)
     {
-        return $this->model->all();
+        return $this->where($options);
     }
 
     /**
@@ -73,45 +73,61 @@ class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
-    * @param array $fields
-    * @param array query
-    * @param array options
+    * @param array options (select,field, query, distinct, not_in, size,pagination,request)
     */
-    public function where(array $fields,array $query,array $options = [])
+    public function where(array $options = [])
     {
-        if(count($fields)==0){
-            return [];
+        // default
+        $size = 20;
+        $model = $this->model;
+
+        // no options
+        if(!is_array($options) || count($options)<=0){
+            return $model->paginate($size);
         }
 
-        $res = $this->model;
-        for ($i=0; $i < count($fields); $i++) {
-            $res = $res->where($fields[$i],$query[$i]);
+        // with options
+        if(isset($options['select'])){
+            $model = $model->select($options['select']);
         }
 
-        //options
-        if(is_array($options) && count($options)>0){
+        if(isset($options['where']) && isset($options['where']['field']) && isset($options['where']['query'])){
+            $field = $options['where']['field'];
+            $query = $options['where']['query'];
 
-            if(isset($options['select'])){
-                $res = $res->select($options['select']);
-            }
-
-            if(isset($options['distinct'])){
-                $res = $res->distinct($options['distinct']);
-            }
-
-            if(isset($options['not_in'])){
-                $res = $res->whereNotIn($options['not_in']['field'], $options['not_in']['values']);
-            }
-
-            if(isset($options['offset'])){
-                $res = $res->skip($options['offset']);
-            }
-
-            if(isset($options['limit'])){
-                $res = $res->take($options['limit']);
+            for ($i=0; $i < count($field); $i++) {
+                $model = $model->where($field[$i],$query[$i]);
             }
         }
 
-        return $res->get();
+        if(isset($options['distinct'])){
+            $model = $model->distinct($options['distinct']);
+        }
+
+        if(isset($options['not_in'])){
+            $model = $model->whereNotIn($options['not_in']['field'], $options['not_in']['values']);
+        }
+
+        if(isset($options['like'])){
+            $model = $model->orWhere($options['like']['field'],'like','%'.$options['like']['query'].'%');
+        }
+
+        if(isset($options['size'])){
+            $size = $options['size'];
+            if($size == 'all'){
+                $size = $model->count();
+            }
+        }
+
+        $model = $model->paginate($size);
+
+        // paginator options
+        if(isset($options['request'])){
+            $request = $options['request'];
+            $model = $model->setPath($request->url());
+            $model = $model->appends($request->input());
+        }
+
+        return $model;
     }
 }

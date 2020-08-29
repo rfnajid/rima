@@ -24,6 +24,7 @@ class Kata extends Model
          'sukuawal2',
          'sukuakhir1',
          'sukuakhir2',
-         'konsonan'
+         'konsonan',
+         'vokal'
    ];
 }

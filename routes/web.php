@@ -34,16 +34,19 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
     $router->group(['prefix' => 'rima'], function() use ($router) {
         //akhir
         $router->get('akhir/{word}','ApiControllers\V1Controllers\RimaController@getAkhir');
-        $router->get('akhir-parsial/{word}','ApiControllers\V1Controllers\RimaController@getAkhir');
-        $router->get('ganda/{word}','ApiControllers\V1Controllers\RimaController@getAkhirGanda');
-        $router->get('ganda-parsial/{word}','ApiControllers\V1Controllers\RimaController@getAkhirGandaParsial');
+        // $router->get('akhir-parsial/{word}','ApiControllers\V1Controllers\RimaController@getAkhir');
+        $router->get('akhir-ganda/{word}','ApiControllers\V1Controllers\RimaController@getAkhirGanda');
+        // $router->get('ganda-parsial/{word}','ApiControllers\V1Controllers\RimaController@getAkhirGandaParsial');
 
         // awal
         $router->get('awal/{word}','ApiControllers\V1Controllers\RimaController@getAwal');
-        $router->get('awal-parsial/{word}','ApiControllers\V1Controllers\RimaController@getAwalParsial');
+        $router->get('awal-ganda/{word}','ApiControllers\V1Controllers\RimaController@getAwalGanda');
+        // $router->get('awal-parsial/{word}','ApiControllers\V1Controllers\RimaController@getAwalParsial');
 
         // lainnya
         $router->get('konsonan/{word}','ApiControllers\V1Controllers\RimaController@getKonsonan');
+        $router->get('vokal/{word}','ApiControllers\V1Controllers\RimaController@getVokal');
+
     });
 });
 

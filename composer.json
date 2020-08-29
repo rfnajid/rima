@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=7.1.0",
+        "danbovey/laravel-linkheader-paginator": "dev-master",
         "laravel/lumen-framework": "^5.8",
+        "mpociot/laravel-apidoc-generator": "^3.17",
         "rfnajid/sukukata": "dev-master"
     },
     "require-dev": {
@@ -37,6 +39,12 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/rfnajid/laravel-linkheader-paginator"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }

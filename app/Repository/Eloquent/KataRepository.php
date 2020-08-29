@@ -15,8 +15,24 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
         parent::__construct($model);
     }
 
-    public function findByKata($word){
-        $res = parent::where(['kata'],[$word]);
+    public function search($query, $options=[]){
+
+        $options['search'] = [
+            'field' => 'kata',
+            'query' => $query
+        ];
+
+        return $this->where($options);
+    }
+
+    public function findByKata($word, $options=[]){
+
+        $options['where'] = [
+            'field'=>['kata'],
+            'query'=>[$word]
+        ];
+
+        $res = $this->where($options);
 
         if(count($res)>0){
             $kata = $res[0];
@@ -34,22 +50,31 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
     public function findByAkhir($word, $options=[]){
         $options = $this->setRimaOptions($options, $word);
 
-        $syls = SukuKataHelper::getSukuKataAkhir($word);
-        $fields = ["sukuakhir1"];
-        $query = [$syls[0]];
+        $syl = SukuKataHelper::getSukuKataAkhir($word);
 
-        $data = parent::where($fields,$query, $options);
+        $options['where'] = [
+            'field'=>['sukuakhir1'],
+            'query'=>[$syl[0]]
+        ];
+
+        $data = $this->where($options);
         return $data;
     }
 
     public function findByAkhirGanda($word, $options=[]){
         $options = $this->setRimaOptions($options, $word);
+        $options =
 
         $syl = SukuKataHelper::getSukuKataAkhir($word);
         $fields = ["sukuakhir1","sukuakhir2"];
         $query = [$syl[0],$syl[1]];
 
-        $data = parent::where($fields,$query, $options);
+        $options['where'] = [
+            'field'=>["sukuakhir1","sukuakhir2"],
+            'query'=>[$syl[0],$syl[1]]
+        ];
+
+        $data = parent::where($options);
 
         return $data;
     }
@@ -58,10 +83,13 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
         $options = $this->setRimaOptions($options, $word);
 
         $syl = SukuKataHelper::getSukuKataAwal($word);
-        $fields = ["sukuawal1"];
-        $query = [$syl[0]];
 
-        $data = parent::where($fields,$query, $options);
+        $options['where'] = [
+            'field'=>['sukuawal1'],
+            'query'=>[$syl[0]]
+        ];
+
+        $data = parent::where($options);
         return $data;
     }
 
@@ -69,10 +97,13 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
         $options = $this->setRimaOptions($options, $word);
 
         $syl = SukuKataHelper::getSukuKataAwal($word);
-        $fields = ["sukuawal1","sukuawal2"];
-        $query = [$syl[0],$syl[1]];
 
-        $data = parent::where($fields,$query, $options);
+        $options['where'] = [
+            'field'=>["sukuawal1","sukuawal2"],
+            'query'=>[$syl[0],$syl[1]]
+        ];
+
+        $data = parent::where($options);
 
         return $data;
     }
@@ -81,10 +112,13 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
         $options = $this->setRimaOptions($options, $word);
 
         $syl = SukuKataHelper::getKonsonan($word);
-        $fields = ["konsonan"];
-        $query = [$syl];
 
-        $data = parent::where($fields,$query, $options);
+        $options['where'] = [
+            'field'=>['konsonan'],
+            'query'=>[$syl[0]]
+        ];
+
+        $data = parent::where($options);
         return $data;
     }
 
@@ -92,10 +126,13 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
         $options = $this->setRimaOptions($options, $word);
 
         $syl = SukuKataHelper::getVokal($word);
-        $fields = ["vokal"];
-        $query = [$syl];
 
-        $data = parent::where($fields,$query, $options);
+        $options['where'] = [
+            'field'=>['vokal'],
+            'query'=>[$syl[0]]
+        ];
+
+        $data = parent::where($options);
         return $data;
     }
 
