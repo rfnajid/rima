@@ -64,7 +64,6 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
 
     public function findByAkhirGanda($word, $options=[]){
         $options = $this->setRimaOptions($options, $word);
-        $options =
 
         $syl = SukuKataHelper::getSukuKataAkhir($word);
         $fields = ["sukuakhir1","sukuakhir2"];
@@ -116,7 +115,7 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
 
         $options['where'] = [
             'field'=>['konsonan'],
-            'query'=>[$syl[0]]
+            'query'=>[$syl]
         ];
 
         $data = parent::where($options);
@@ -130,7 +129,7 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
 
         $options['where'] = [
             'field'=>['vokal'],
-            'query'=>[$syl[0]]
+            'query'=>[$syl]
         ];
 
         $data = parent::where($options);
