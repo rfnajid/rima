@@ -17,6 +17,7 @@ class KataRepository extends BaseRepository implements KataRepositoryInterface
 
     public function search($query, $options=[]){
 
+        $options['select'] = ['kata'];
         $options['search'] = [
             'field' => 'kata',
             'query' => $query

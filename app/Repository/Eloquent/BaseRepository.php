@@ -73,7 +73,7 @@ class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
-    * @param array options (select,field, query, distinct, not_in, size,pagination,request)
+    * @param array options (select,field, query, distinct, not_in, size, search,request)
     */
     public function where(array $options = [])
     {
@@ -110,6 +110,10 @@ class BaseRepository implements BaseRepositoryInterface
 
         if(isset($options['like'])){
             $model = $model->orWhere($options['like']['field'],'like','%'.$options['like']['query'].'%');
+        }
+
+        if(isset($options['search']) && isset($options['search']['field']) && isset($options['search']['query'])){
+            $model = $model->whereRaw("MATCH (".$options['search']['field'].") AGAINST ('*".$options['search']['query']."*' IN BOOLEAN MODE)");
         }
 
         if(isset($options['size'])){

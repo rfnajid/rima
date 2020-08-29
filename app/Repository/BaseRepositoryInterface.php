@@ -44,7 +44,7 @@ interface BaseRepositoryInterface
     public function find($id): ?Model;
 
     /**
-    * @param array options (select,field, query, distinct, not_in, size,pagination,request)
+    * @param array options (select,field, query, distinct, not_in, size, search,request)
     */
     public function where(array $options);
 }
