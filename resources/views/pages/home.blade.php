@@ -1,5 +1,9 @@
 <html>
-    @include('components.head', ['css' => "home"])
+    @include('components.head', [
+        'css' => 'home',
+        'title' => 'Cari Rima dari kata yang kamu inginkan',
+        'description' => 'Tempat pencarian rima paling lengkap, mirip Google'
+    ])
     <body>
         <main>
 
@@ -14,5 +18,8 @@
                 @endfor
             </div>
         </main>
+
+        @include('components/footer')
+
     </body>
 </html>

@@ -1,14 +1,20 @@
 main{
     margin: 0;
-    position: absolute;
+    position: relative;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
 }
 
+footer{
+    position: absolute;
+    top: 91%;
+}
+
+
 @media only screen and (max-width: 720px) {
-    main{
+    main, footer{
         width: 75%;
     }
 

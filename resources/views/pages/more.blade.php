@@ -1,5 +1,9 @@
 <html>
-    @include('components.head', ['css' => "rima"])
+    @include('components.head', [
+        'css' => 'rima',
+        'title' => ucfirst($rima['type'].' dari kata '. $kata),
+        'description' => ucfirst($rima['type'].' dari kata '. $kata). ' beserta pengertiannya dari kamus KBBI'
+    ])
 
     <body>
         <main>

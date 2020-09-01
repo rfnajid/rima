@@ -22,10 +22,26 @@ body{
 
 main{
     width: 75%;
-    position: absolute;
+    position: relative;
     top: 0%;
     left: 50%;
     transform: translate(-50%, 0%);
+}
+
+footer{
+    display: flex;
+    position: relative;
+    width: 75%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    justify-content: center;
+    padding: 21px;
+}
+
+footer a {
+    color: #e11d74;
+    font-weight: 700;
+    margin: 0px 21px;
 }
 
 a:visited, a:hover, a:active, a:focus, a {
