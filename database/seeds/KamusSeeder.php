@@ -43,7 +43,8 @@ class KamusSeeder extends Seeder
                     'sukuakhir1'=> $data[6],
                     'sukuakhir2'=> $data[7],
                     'konsonan'=> $data[8],
-                    'vokal'=> $data[9]
+                    'vokal'=> $data[9],
+                    'sumber'=> "kbbi"
                 ]);
 
                 fputs($output,implode("\t",$data)."\n");

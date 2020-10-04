@@ -33,18 +33,7 @@
                 </div>
             </div>
 
-
-            @if ($kamus)
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $kamus['kata']}}</h5>
-                    <div class="card-text">{!! $kamus['arti']!!}</div>
-                    <div>
-                        <a href="https://kbbi.kemdikbud.go.id/entri/{{$kamus['kata']}}" class="card-link">KBBI</a>
-                    </div>
-                </div>
-            </div>
-            @endif
+            @include('components.arti', ['kamus' => $kamus])
 
         </main>
     </body>
