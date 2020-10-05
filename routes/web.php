@@ -48,5 +48,12 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
         $router->get('vokal/{word}','ApiControllers\V1Controllers\RimaController@getVokal');
 
     });
+
+    // Kamus Controller
+    // /api/v1/pantun
+    $router->group(['prefix' => 'pantun'], function() use ($router) {
+        $router->get('','ApiControllers\V1Controllers\PantunController@index');
+        $router->post('karmina','ApiControllers\V1Controllers\PantunController@karmina');
+    });
 });
 
