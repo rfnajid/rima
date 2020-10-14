@@ -37,7 +37,7 @@ class CreateFunctionGetKategoriParents extends Migration
                     set v_current_id = v_parent_id;
                 end if;
               end while;
-              return v_result;
+              return nullif(v_result,"");
         end;'
         );
     }

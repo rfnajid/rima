@@ -35,9 +35,7 @@ class PantunController extends BaseController
     public function karmina(Request $request){
         $pantun = $request->json()->all();
         $pantun['sampiran'] = $this->repo->getSampiran($pantun['isi']);
-        if(is_null($pantun['sampiran'])){
-           return response(view('errors.404'),404);
-        }
+
         return $pantun;
     }
 }
