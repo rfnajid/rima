@@ -1,0 +1,14 @@
+ID;KALIMAT;PARAM_AWAL;PARAM_AKHIR
+1;buah {awal}, buah {akhir};4;4
+2;ada {awal} makan {akhir};5;2
+3;ikan {awal} ikan {akhir};6;6
+4;jalan-jalan ke {akhir};;13
+5;kota {awal}, kota {akhir};14;14
+6;ada {awal} warnanya {akhir};10;9
+7;burung {awal}, burung {akhir};8;8
+8;pergi ke {awal}, bawa {akhir};14;5
+9;buah {awal} bijinya {akhir};4;15
+10;orang utan kepalanya {akhir};;11
+11;anak {awal} berburu {akhir};5;3
+12;ada {awal} di rumah pak {akhir};5;18
+13;pak mamat beli {akhir};;1

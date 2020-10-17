@@ -7,6 +7,8 @@ use App\Repository\BaseRepositoryInterface;
 use App\Repository\Eloquent\BaseRepository;
 use App\Repository\KataRepositoryInterface;
 use App\Repository\Eloquent\KataRepository;
+use App\Repository\PantunRepositoryInterface;
+use App\Repository\Eloquent\PantunRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             KataRepositoryInterface::class,
             KataRepository::class
+        );
+
+        $this->app->bind(
+            PantunRepositoryInterface::class,
+            PantunRepository::class
         );
     }
 }

@@ -27,4 +27,9 @@ class Kata extends Model
          'konsonan',
          'vokal'
    ];
+
+
+   public function kategori(){
+      return $this->belongsToMany('App\Model\Kategori');
+   }
 }

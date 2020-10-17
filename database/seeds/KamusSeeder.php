@@ -7,6 +7,9 @@ use App\Helpers\GlobalHelper as G;
 
 class KamusSeeder extends Seeder
 {
+
+    private $table = 'kamus';
+
     /**
      * Run the database seeds.
      *
@@ -18,11 +21,14 @@ class KamusSeeder extends Seeder
         $input_file = database_path()."/seeds/data/kbbi_data.csv";
         $output_file = database_path()."/seeds/output/output.csv";
         if (($input = fopen($input_file, "r")) !== FALSE && ($output=fopen($output_file,"wb"))!== FALSE) {
+
+            DB::table($this->table)->delete();
+
             while (($data = fgetcsv($input, 0, "\t")) !== FALSE) {
 
                 $data[1]=trim($data[1]);
 
-                G::log($data[1]);
+                G::log('Seeding Kamus : '.$data[1]);
 
                 $syl = LIB::getSukuKata($data[1], false);
                 $lastIndex = count($syl)-1;
@@ -35,7 +41,8 @@ class KamusSeeder extends Seeder
                 $data[9]= str_replace(' ','',LIB::getVokal($data[1]));
 
 
-                DB::table('kamus')->insert([
+                DB::table($this->table)->insert([
+                    'id' => $data[0],
                     'kata' => $data[1],
                     'arti' => $data[2],
                     'sukuawal1' => $data[4],
