@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'App\Console\Commands\ServeCommand'
+        'App\Console\Commands\ServeCommand',
+        'App\Console\Commands\SeedingKamusKategoriCommand',
+        'App\Console\Commands\TruncateTableCommand'
     ];
 
     /**

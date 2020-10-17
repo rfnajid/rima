@@ -18,16 +18,19 @@ class PantunRepository implements PantunRepositoryInterface
 
         // get struktur
         $result = $this->getStruktur($syl[0]);
+
         if($result == null){
             // error... struktur not found
             return null;
         }
 
         // get awal
-        $result['awal'] = $this->getKata($result['param_awal']);
-        if($result['awal'] == null){
-            // error... kata awal not found
-            return null;
+        if($result['param_awal']!=null){
+            $result['awal'] = $this->getKata($result['param_awal']);
+            if($result['awal'] == null){
+                // error... kata awal not found
+                return null;
+            }
         }
 
         // if you want to log result you can do it here
@@ -38,7 +41,13 @@ class PantunRepository implements PantunRepositoryInterface
         $result['kalimat'] = str_replace('{awal}',$result['awal']['kata'],$result['kalimat']);
         $result['kalimat'] = str_replace('{akhir}',$result['akhir'],$result['kalimat']);
 
+        // // debugging
+        // $result['syl'] = $syl;
+        // return $result;
+
+        // normal
         return $result['kalimat'];
+
     }
 
     private function getKata($kategori_id){
