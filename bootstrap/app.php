@@ -57,9 +57,9 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+    Fruitcake\Cors\HandleCors::class,
+]);
 
 // $app->routeMiddleware([
 //     'auth' => App\Http\Middleware\Authenticate::class,
@@ -78,9 +78,11 @@ $app->singleton(
 
  $app->register(App\Providers\AppServiceProvider::class);
  $app->register(\Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class);
+ $app->register(Fruitcake\Cors\CorsServiceProvider::class);
 
  // configure
  $app->configure('apidoc');
+ $app->configure('cors');
 
 /*
 |--------------------------------------------------------------------------

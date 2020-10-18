@@ -7,6 +7,7 @@
     "require": {
         "php": ">=7.1.0",
         "danbovey/laravel-linkheader-paginator": "dev-master",
+        "fruitcake/laravel-cors": "^2.0",
         "laravel/lumen-framework": "^5.8",
         "mpociot/laravel-apidoc-generator": "^3.17",
         "rfnajid/sukukata": "dev-master"
