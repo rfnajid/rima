@@ -15,7 +15,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         'App\Console\Commands\ServeCommand',
         'App\Console\Commands\SeedingKamusKategoriCommand',
-        'App\Console\Commands\TruncateTableCommand'
+        'App\Console\Commands\TruncateTableCommand',
+        'App\Console\Commands\GenerateRssCommand'
     ];
 
     /**

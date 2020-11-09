@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>https://rima.rfnaj.id/sitemap/sitemap-manual.xml.gz</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://rima.rfnaj.id/sitemap/sitemap-rima.xml.gz</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://rima.rfnaj.id/sitemap/sitemap-rima-akhir.xml.gz</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://rima.rfnaj.id/sitemap/sitemap-rima-akhir-ganda.xml.gz</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://rima.rfnaj.id/sitemap/sitemap-rima-awal.xml.gz</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://rima.rfnaj.id/sitemap/sitemap-rima-awal-ganda.xml.gz</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://rima.rfnaj.id/sitemap/sitemap-rima-konsonan.xml.gz</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://rima.rfnaj.id/sitemap/sitemap-rima-vokal.xml.gz</loc>
+	</sitemap>
+</sitemapindex>
