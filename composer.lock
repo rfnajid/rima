@@ -3091,19 +3091,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rfnajid/php-suku-kata.git",
-                "reference": "a36addb90fd04beee3b8b982ef569970c5b45743"
+                "reference": "d5beb9d1362d93c05d36cef98c05adbcc6106bfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rfnajid/php-suku-kata/zipball/a36addb90fd04beee3b8b982ef569970c5b45743",
-                "reference": "a36addb90fd04beee3b8b982ef569970c5b45743",
+                "url": "https://api.github.com/repos/rfnajid/php-suku-kata/zipball/d5beb9d1362d93c05d36cef98c05adbcc6106bfc",
+                "reference": "d5beb9d1362d93c05d36cef98c05adbcc6106bfc",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.4.0 || >=7.0 || >=8.1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.5"
+                "phpunit/phpunit": "^10.0"
             },
             "default-branch": true,
             "type": "library",
@@ -3133,7 +3133,7 @@
                 "issues": "https://github.com/rfnajid/php-suku-kata/issues",
                 "source": "https://github.com/rfnajid/php-suku-kata/tree/master"
             },
-            "time": "2020-08-21T10:33:02+00:00"
+            "time": "2023-03-14T11:20:37+00:00"
         },
         {
             "name": "symfony/console",

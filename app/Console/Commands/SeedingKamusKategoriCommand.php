@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
-use Database\Seeds\KamusKategoriSeeder;
+use Database\Seeders\KamusKategoriSeeder;
 use App\Helpers\GlobalHelper as G;
 
 
@@ -15,14 +15,14 @@ class SeedingKamusKategoriCommand extends Command {
      *
      * @var string
      */
-    protected $signature = 'seed:kamus-kategori {filename?*}';
+    protected $signature = 'db:seed-kamus-kategori {filename?*}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = "Seeding Kamus-Kategori from database/seeds/data/kamus-kategori";
+    protected $description = "Seeding Kamus-Kategori from database/seeders/data/kamus-kategori";
 
     /**
      * Execute the console command.
@@ -37,7 +37,7 @@ class SeedingKamusKategoriCommand extends Command {
         $seeder = new KamusKategoriSeeder();
 
         if(count($filenames) == 0){
-            $dir = database_path().'/seeds/data/kamus-kategori/*.csv';
+            $dir = database_path().'/seeders/data/kamus-kategori/*.csv';
             $filenames = array_map('basename',glob($dir, GLOB_BRACE));
 
             $this->call('db:truncate',['tables' => ['kamus_kategori']]);

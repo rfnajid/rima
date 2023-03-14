@@ -1,0 +1,22 @@
+ID;KATEGORI;PARENT_ID
+1;Makanan Omnivora;
+2;Makanan Herbivora;1
+3;Makanan Karnivora;1
+4;Buah;2
+5;Hewan;3
+6;Ikan;5
+7;Unggas;5
+8;Burung;7
+9;Warna;
+10;Pakaian;
+11;Sifat Fisik;
+12;Nama Orang;
+13;Nama Tempat;
+14;Nama Kota;13
+15;Angka;
+16;Pakaian Cowok;10
+17;Pakaian Cewek;10
+18;Nama Cowok;12
+19;Nama Cewek;12
+20;Hewan Mamalia;5
+21;Rasa;
