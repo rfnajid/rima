@@ -4,11 +4,18 @@ namespace App\Repository\Eloquent;
 
 use App\Model\Kata;
 use App\Repository\PantunRepositoryInterface;
+use App\Repository\LogPantunRepositoryInterface;
 use App\Helpers\SukuKataHelper;
 use Illuminate\Support\Facades\DB;
 
 class PantunRepository implements PantunRepositoryInterface
 {
+
+    private $log;
+
+    public function __construct(LogPantunRepositoryInterface $log){
+        $this->log= $log;
+    }
 
     public function getSampiran($isi){
 
@@ -21,6 +28,9 @@ class PantunRepository implements PantunRepositoryInterface
 
         if($result == null){
             // error... struktur not found
+            // log here
+            $this->log->save($isi, null);
+
             return null;
         }
 
@@ -29,23 +39,20 @@ class PantunRepository implements PantunRepositoryInterface
             $result['awal'] = $this->getKata($result['param_awal']);
             if($result['awal'] == null){
                 // error... kata awal not found
+                // log here
+                $this->log->save($isi, null);
+
                 return null;
             }
         }
-
-        // if you want to log result you can do it here
-        // lagi males, entaran aja dah
-        // kwkwkw
 
         // reformat data to return final result (string)
         $result['kalimat'] = str_replace('{awal}',$result['awal']['kata'],$result['kalimat']);
         $result['kalimat'] = str_replace('{akhir}',$result['akhir'],$result['kalimat']);
 
-        // // debugging
-        // $result['syl'] = $syl;
-        // return $result;
+        // log here
+        $this->log->save($isi, $result['kalimat']);
 
-        // normal
         return $result['kalimat'];
 
     }
